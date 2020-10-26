@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-import { Route, BrowserRouter, withRouter } from 'react-router-dom';
+import { Route, BrowserRouter, withRouter, HashRouter } from 'react-router-dom';
 import Music from './components/Music/Music';
 import News from './components/News/News';
 //import DialogsContainer from './components/Dialogs/DialogsContainer';
@@ -29,7 +29,7 @@ class App extends React.Component {
       return <Preloader/>
 
     return (
-      <BrowserRouter>
+      <HashRouter>
         <div className="wrapper">
           <HeaderContainer />
           <Navbar />
@@ -42,7 +42,7 @@ class App extends React.Component {
           <Route path="/users" render={() => <UsersContainer />} />
           <Route path="/login" render={() => <Login />} />
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
