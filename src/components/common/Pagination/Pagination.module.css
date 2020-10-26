@@ -1,0 +1,32 @@
+.pagination{
+    display: grid;
+    justify-content: center;
+}
+
+.selectedPage{
+    font-weight: bold;
+}
+
+.span{
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.buttonStyle{
+    margin: 3px;
+    border-radius: 10px;
+    border: 1px solid rgb(150, 119, 15);
+    background-color: rgb(216, 147, 19);
+    padding: 10px;
+    color: white;
+}
+
+.buttonStyle:hover{
+    outline: none;
+    background-color: rgb(228, 171, 64);
+}
+
+.buttonStyle:focus{
+    outline: none;
+}
+

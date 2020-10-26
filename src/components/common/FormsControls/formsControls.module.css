@@ -1,0 +1,29 @@
+.formControl.error{
+    border: 1px solid red;
+}
+
+.span{
+    position: absolute;
+    color: red;
+    margin-top: -25px;
+}
+
+.input{
+    position: absolute;
+    top: 0;
+    left: 166px;
+    color: red;
+}
+
+.formSummaryError{
+    display: inline-block;
+    text-align: center;
+    margin: 5px 0;
+    width: 150px;
+    padding: 5px;
+    border: 1px solid red;
+    color: red;
+}
+
+
+

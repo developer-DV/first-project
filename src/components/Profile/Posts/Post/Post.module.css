@@ -1,0 +1,14 @@
+.post{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin: 20px 10%;
+}
+
+.imgPost{
+    width: 70px;
+}
+
+.textPost{
+    padding-left: 5%;
+}
+

@@ -1,0 +1,119 @@
+.dialogs{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.heading{
+    font-size: 28px;
+    grid-column: 1/3;
+    padding: 0 30px;
+}
+
+
+.heading h2{
+    margin-bottom: 0;
+}
+
+.dialogsItems{
+    padding: 20px 40px;
+    border-right: 1px solid black;
+    margin: 10px 0;
+}
+
+.dialog{
+    font-size: 24px;
+    color: white;
+    padding: 10px 30px;
+    margin: 20px 0;
+    background-color: rgb(216, 147, 19);
+    border-radius: 20px;
+}
+
+.dialog a{
+    display: block;
+    margin: 20px 0;
+    text-decoration: none;
+    color: white;
+}
+
+.dialog a.dialogActive{
+    color: black;
+}
+
+.dialogsItems .dialog:hover{
+    cursor: pointer;
+    background-color: rgb(219, 197, 68);
+}
+
+.messages{
+    margin: 40px 0;
+}
+
+.message{
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+.message .avatar{
+    padding: 20px 50px;
+}
+
+.message .avatar img{
+    border-radius: 100px;
+    width: 100px;
+}
+
+.message .avatar p{
+    margin: 0;
+    font-size: 20px;
+    text-align: center;
+}
+
+.messageText{
+    align-self: center;
+    background-color: rgb(241, 211, 128);
+    padding: 30px;
+    margin: 20px;
+    border-radius: 40px;
+}
+
+.addMessage{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding: 20px 80px;
+}
+
+.addMessage textarea{
+    font-size: 16px;
+    resize: none;
+    border: 1px solid black;
+    outline: none;
+    height: 50px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    padding: 10px;
+}
+
+.addMessage textarea:focus{
+    outline: none;
+}
+
+.addMessage button{
+    min-width: 150px;
+    background-color: rgb(241, 211, 128);
+    border: 1px solid black;
+    border-left: none;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    font-size: 16px;
+    transition: .1s ease-in;
+}
+
+.addMessage button:hover{
+    cursor: pointer;
+    background-color: rgb(218, 185, 42);
+}
+
+.addMessage button:focus{
+    outline: none;
+    background-color: rgb(241, 211, 128);
+}

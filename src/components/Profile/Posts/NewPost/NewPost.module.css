@@ -1,0 +1,37 @@
+.newPost{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    margin: 0 30px;
+}
+
+.heading{
+    color: rgb(216, 147, 19);
+    grid-column: 1/3;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.newPost button{
+    color: white;
+    justify-self: end;
+    padding: 15px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(216, 147, 19);
+    border: none;
+    transition: .2s ease-in-out;
+}
+
+.newPost button:hover{
+    background-color: rgb(224, 199, 87);
+    color: black;
+}
+
+.newPost textarea{
+    font-size: 20px;
+}
+
+.newPost textarea:focus{
+    font-size: 20px;
+    outline: none;
+}

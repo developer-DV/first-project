@@ -1,0 +1,29 @@
+.nav{
+    display: grid;
+    align-content: start;
+    background-color: rgb(216, 147, 19);
+}
+
+.item{
+    font-size: 20px;
+    padding: 10px 10px 10px;
+}
+
+.item a{
+    color: white;
+    text-decoration: none;
+}
+
+.item:hover{
+    background-color: rgb(213, 209, 192);
+    transition: .3s ease-in-out;
+}
+
+.item:hover a{
+    color: black;
+}
+
+
+.item a.active{
+    color: black;
+}

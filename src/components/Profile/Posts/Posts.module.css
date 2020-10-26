@@ -1,0 +1,11 @@
+.myPosts{
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.heading{
+  text-align: center;
+  font-size: 60px;
+  font-style: italic;
+  color: rgb(216, 147, 19);
+}
