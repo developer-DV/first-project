@@ -4,6 +4,7 @@ const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 const SET_USER_PROFILE = 'SET-USER-PROFILE'
 const SET_STATUS = 'SET-STATUS'
+const SAVE_PHOTO_SUCCESS = 'SAVE-PHOTO-SUCCESS'
 
 let initialState = {
     postsData: [
@@ -15,8 +16,8 @@ let initialState = {
     status: ""
 }
 
-const profileReducer = (state = initialState, action) =>{
-    switch(action.type){
+const profileReducer = (state = initialState, action) => {
+    switch (action.type) {
         case ADD_POST:
             return {
                 ...state,
@@ -34,9 +35,14 @@ const profileReducer = (state = initialState, action) =>{
                 profile: action.profile
             }
         case SET_STATUS:
-            return{
+            return {
                 ...state,
                 status: action.status
+            }
+        case SAVE_PHOTO_SUCCESS:
+            return {
+                ...state,
+                profile: {...state.profile, photos: action.photos}
             }
         default:
             return state
@@ -44,21 +50,22 @@ const profileReducer = (state = initialState, action) =>{
 }
 
 
-export const addPostActionCreator = () => ({type: ADD_POST})
-export const onChangePostActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
-export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
-export const setStatus = (status) => ({type: SET_STATUS, status})
+export const addPostActionCreator = () => ({ type: ADD_POST })
+export const onChangePostActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text })
+export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
+export const setStatus = (status) => ({ type: SET_STATUS, status })
+export const savePhotoSuccess = (photos) => ({ type: SAVE_PHOTO_SUCCESS, photos })
 
 export const getUserProfile = (userId) => {
     return (dispatch) => {
-        if(!userId){
-            dispatch(setUserProfile({photos: {large: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png"}}))
+        if (!userId) {
+            dispatch(setUserProfile({ photos: { large: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png" } }))
         }
-        else{
+        else {
             usersAPI.getProfile(userId).then(response => {
                 dispatch(setUserProfile(response.data))
             })
-        } 
+        }
     }
 }
 
@@ -70,13 +77,21 @@ export const getStatus = (userId) => {
     }
 }
 
-export const updateStatus = (status) =>{
+export const updateStatus = (status) => {
     return (dispatch) => {
         profileAPI.updateStatus(status).then(response => {
-            if(response.data.resultCode === 0){
+            if (response.data.resultCode === 0) {
                 dispatch(setStatus(status))
             }
         })
+    }
+}
+
+export const savePhoto = (file) => async (dispatch) => {
+    let response = await profileAPI.savePhoto(file)
+
+    if (response.resultCode === 0) {
+        dispatch(savePhotoSuccess(response.data.photos))
     }
 }
 
