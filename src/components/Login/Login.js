@@ -7,7 +7,7 @@ import LoginForm from './LoginForm'
 const Login = (props) => {
 
     const submit = values =>{
-        props.login(values.email, values.password, values.rememberMe)
+        props.login(values.email, values.password, values.rememberMe, values.captcha)
     }
 
     if(props.isAuth){
@@ -16,12 +16,13 @@ const Login = (props) => {
 
     return <div>
         <h1>Login</h1>
-        <LoginForm onSubmit={submit}/>
+        <LoginForm onSubmit={submit} captchaUrl={props.captchaUrl}/>
     </div>
 }
 
 let mapStateToProps = (state) =>{
     return({
+        captchaUrl: state.auth.captchaUrl,
         isAuth: state.auth.isAuth
     })
 }
